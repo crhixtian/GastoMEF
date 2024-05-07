@@ -1,0 +1,1377 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "es-ES",
+    "dataSources": [
+      {
+        "name": "YOGASQLSERVER ",
+        "connectionString": "Provider=SQLOLEDB;Data Source=YOGA\\SQLSERVER;Persist Security Info=true;User ID=sa;Initial Catalog=DMT_GASTO_MEF",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "DIM_ANIO",
+        "columns": [
+          {
+            "name": "ANIO_FINALIDAD",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_FINALIDAD",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ANIO",
+            "dataType": "int64",
+            "sourceColumn": "ANIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "FECHA_INICIO",
+            "dataType": "dateTime",
+            "sourceColumn": "FECHA_INICIO",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "FECHA_FIN",
+            "dataType": "dateTime",
+            "sourceColumn": "FECHA_FIN",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_ANIO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_ANIO].*   FROM [dbo].[DIM_ANIO] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_ANIO].*   FROM [dbo].[DIM_ANIO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_ANIO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_CATEGORIA_GASTO",
+        "columns": [
+          {
+            "name": "CATEGORIA_GASTO_ID",
+            "dataType": "int64",
+            "sourceColumn": "CATEGORIA_GASTO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_CATEGORIA_GASTO",
+            "dataType": "string",
+            "sourceColumn": "COD_CATEGORIA_GASTO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_CATEGORIA_GASTO",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_CATEGORIA_GASTO",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_CATEGORIA_GASTO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_CATEGORIA_GASTO].*   FROM [dbo].[DIM_CATEGORIA_GASTO] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_CATEGORIA_GASTO].*   FROM [dbo].[DIM_CATEGORIA_GASTO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_CATEGORIA_GASTO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_EJECUTORA",
+        "columns": [
+          {
+            "name": "EJECUTORA_ID",
+            "dataType": "int64",
+            "sourceColumn": "EJECUTORA_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_DEPARTAMENTO_EJEC",
+            "dataType": "string",
+            "sourceColumn": "COD_DEPARTAMENTO_EJEC",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "COD_PROVINCIA_EJEC",
+            "dataType": "string",
+            "sourceColumn": "COD_PROVINCIA_EJEC",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "COD_DISTRITO_EJEC",
+            "dataType": "string",
+            "sourceColumn": "COD_DISTRITO_EJEC",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "RUC_EJEC",
+            "dataType": "string",
+            "sourceColumn": "RUC_EJEC",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_EJE",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_EJE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ID_EJECUTORA",
+            "dataType": "string",
+            "sourceColumn": "ID_EJECUTORA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "SEC_EJEC",
+            "dataType": "int64",
+            "sourceColumn": "SEC_EJEC",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NOMBRE",
+            "dataType": "string",
+            "sourceColumn": "NOMBRE",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "TIPO_UNIDAD",
+            "dataType": "string",
+            "sourceColumn": "TIPO_UNIDAD",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_EJECUTORA",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_EJECUTORA].*   FROM [dbo].[DIM_EJECUTORA] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_EJECUTORA].*   FROM [dbo].[DIM_EJECUTORA] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_EJECUTORA"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_FINALIDAD",
+        "columns": [
+          {
+            "name": "FINALIDAD_ID",
+            "dataType": "int64",
+            "sourceColumn": "FINALIDAD_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_FINALIDAD",
+            "dataType": "string",
+            "sourceColumn": "COD_FINALIDAD",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_FINALIDAD",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_FINALIDAD",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_FINALIDAD",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_FINALIDAD",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_FINALIDAD",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_FINALIDAD].*   FROM [dbo].[DIM_FINALIDAD] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_FINALIDAD].*   FROM [dbo].[DIM_FINALIDAD] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_FINALIDAD"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_FUENTE",
+        "columns": [
+          {
+            "name": "FUENTE_ID",
+            "dataType": "int64",
+            "sourceColumn": "FUENTE_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_FUENTE",
+            "dataType": "string",
+            "sourceColumn": "COD_FUENTE",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_FUENTE",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_FUENTE",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_FUENTE",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_FUENTE",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_FUENTE",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_FUENTE].*   FROM [dbo].[DIM_FUENTE] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_FUENTE].*   FROM [dbo].[DIM_FUENTE] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_FUENTE"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_NIVEL_GOBIERNO",
+        "columns": [
+          {
+            "name": "NIVEL_GOBIERNO_ID",
+            "dataType": "int64",
+            "sourceColumn": "NIVEL_GOBIERNO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SUFIJO_GOBIERNO",
+            "dataType": "string",
+            "sourceColumn": "SUFIJO_GOBIERNO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_GOBIERNO",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_GOBIERNO",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_NIVEL_GOBIERNO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_NIVEL_GOBIERNO].*   FROM [dbo].[DIM_NIVEL_GOBIERNO] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_NIVEL_GOBIERNO].*   FROM [dbo].[DIM_NIVEL_GOBIERNO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_NIVEL_GOBIERNO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_PLIEGO",
+        "columns": [
+          {
+            "name": "PLIEGO_ID",
+            "dataType": "int64",
+            "sourceColumn": "PLIEGO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_PLIEGO",
+            "dataType": "string",
+            "sourceColumn": "COD_PLIEGO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_PLIEGO",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_PLIEGO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "COD_SECTOR_PLIEGO",
+            "dataType": "string",
+            "sourceColumn": "COD_SECTOR_PLIEGO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_PLIEGO",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_PLIEGO",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PLIEGO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_PLIEGO].*   FROM [dbo].[DIM_PLIEGO] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_PLIEGO].*   FROM [dbo].[DIM_PLIEGO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PLIEGO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_PROGRAMA",
+        "columns": [
+          {
+            "name": "PROGRAMA_ID",
+            "dataType": "int64",
+            "sourceColumn": "PROGRAMA_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_PROGRAMA",
+            "dataType": "string",
+            "sourceColumn": "COD_PROGRAMA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_PROGRAMA",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_PROGRAMA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_PROGRAMA",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_PROGRAMA",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PROGRAMA",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_PROGRAMA].*   FROM [dbo].[DIM_PROGRAMA] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_PROGRAMA].*   FROM [dbo].[DIM_PROGRAMA] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PROGRAMA"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_PROGRAMA_PPTO",
+        "columns": [
+          {
+            "name": "PROGRAMA_PPTO_ID",
+            "dataType": "int64",
+            "sourceColumn": "PROGRAMA_PPTO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_PROGRAMA_PPTO",
+            "dataType": "string",
+            "sourceColumn": "COD_PROGRAMA_PPTO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_PROGRAMA_PPTO",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_PROGRAMA_PPTO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_PROGRAMA_PPTO",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_PROGRAMA_PPTO",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PROGRAMA_PPTO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_PROGRAMA_PPTO].*   FROM [dbo].[DIM_PROGRAMA_PPTO] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_PROGRAMA_PPTO].*   FROM [dbo].[DIM_PROGRAMA_PPTO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PROGRAMA_PPTO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_RUBRO",
+        "columns": [
+          {
+            "name": "RUBRO_ID",
+            "dataType": "int64",
+            "sourceColumn": "RUBRO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_RUBRO",
+            "dataType": "string",
+            "sourceColumn": "COD_RUBRO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_RUBRO",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_RUBRO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "FUENTE_FINANC_AGREGADA",
+            "dataType": "string",
+            "sourceColumn": "FUENTE_FINANC_AGREGADA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_RUBRO",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_RUBRO",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_RUBRO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_RUBRO].*   FROM [dbo].[DIM_RUBRO] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_RUBRO].*   FROM [dbo].[DIM_RUBRO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_RUBRO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_SECTOR",
+        "columns": [
+          {
+            "name": "SECTOR_ID",
+            "dataType": "int64",
+            "sourceColumn": "SECTOR_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_SECTOR",
+            "dataType": "string",
+            "sourceColumn": "COD_SECTOR",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_SECTOR",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_SECTOR",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_SECTOR",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_SECTOR",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_SECTOR",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_SECTOR].*   FROM [dbo].[DIM_SECTOR] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_SECTOR].*   FROM [dbo].[DIM_SECTOR] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_SECTOR"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_SUBGENERICA_DET_ESPECIFICA_DET",
+        "columns": [
+          {
+            "name": "ESPECIFICA_DET_ID",
+            "dataType": "int64",
+            "sourceColumn": "ESPECIFICA_DET_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_ESPECIFICA",
+            "dataType": "string",
+            "sourceColumn": "COD_ESPECIFICA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "GENERICA",
+            "dataType": "string",
+            "sourceColumn": "GENERICA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "TIPO_TRANSACCION",
+            "dataType": "string",
+            "sourceColumn": "TIPO_TRANSACCION",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "SUB_GENERICA",
+            "dataType": "string",
+            "sourceColumn": "SUB_GENERICA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "SUB_GENERICA_DET",
+            "dataType": "string",
+            "sourceColumn": "SUB_GENERICA_DET",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_SUBGENERICA",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_SUBGENERICA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_ESPECIFICA_DET",
+            "dataType": "string",
+            "sourceColumn": "COD_ESPECIFICA_DET",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CATEGORIA_GASTO",
+            "dataType": "string",
+            "sourceColumn": "CATEGORIA_GASTO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "TIPO_ACT_PROY",
+            "dataType": "string",
+            "sourceColumn": "TIPO_ACT_PROY",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_GENERICA",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_GENERICA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_SUBGENERICA",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_SUBGENERICA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_SUBGENERICA_DET",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_SUBGENERICA_DET",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_ESPECIFICA",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_ESPECIFICA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_ESPECIFICA_DET",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_ESPECIFICA_DET",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "type": "calculated",
+            "name": "TIPO_ACTIVIDAD",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "IF(DIM_SUBGENERICA_DET_ESPECIFICA_DET[TIPO_ACT_PROY]=\"2\", \"Actividades\", \"Proyectos\")"
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_SUBGENERICA_DET_ESPECIFICA_DET",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_SUBGENERICA_DET_ESPECIFICA_DET].*   FROM [dbo].[DIM_SUBGENERICA_DET_ESPECIFICA_DET] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_SUBGENERICA_DET_ESPECIFICA_DET].*   FROM [dbo].[DIM_SUBGENERICA_DET_ESPECIFICA_DET] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_SUBGENERICA_DET_ESPECIFICA_DET"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_UBIGEO",
+        "columns": [
+          {
+            "name": "UBIGEO_ID",
+            "dataType": "int64",
+            "sourceColumn": "UBIGEO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "UBIGEO_RENIEC",
+            "dataType": "string",
+            "sourceColumn": "UBIGEO_RENIEC",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "UBIGEO_INEI",
+            "dataType": "string",
+            "sourceColumn": "UBIGEO_INEI",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DEPARTAMENTO_INEI",
+            "dataType": "string",
+            "sourceColumn": "DEPARTAMENTO_INEI",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DEPARTAMENTO",
+            "dataType": "string",
+            "sourceColumn": "DEPARTAMENTO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "PROVINCIA_INEI",
+            "dataType": "string",
+            "sourceColumn": "PROVINCIA_INEI",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "PROVINCIA",
+            "dataType": "string",
+            "sourceColumn": "PROVINCIA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DISTRITO",
+            "dataType": "string",
+            "sourceColumn": "DISTRITO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "REGION",
+            "dataType": "string",
+            "sourceColumn": "REGION",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "MACROREGION_INEI",
+            "dataType": "string",
+            "sourceColumn": "MACROREGION_INEI",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "MACROREGION_MINSA",
+            "dataType": "string",
+            "sourceColumn": "MACROREGION_MINSA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CODIGO_FIPS",
+            "dataType": "string",
+            "sourceColumn": "CODIGO_FIPS",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "SUPERFICIE",
+            "dataType": "double",
+            "sourceColumn": "SUPERFICIE",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "ALTITUD",
+            "dataType": "int64",
+            "sourceColumn": "ALTITUD",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "LATITUD",
+            "dataType": "double",
+            "sourceColumn": "LATITUD",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "LONGITUD",
+            "dataType": "double",
+            "sourceColumn": "LONGITUD",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "POBLACION_DISTRITO",
+            "dataType": "int64",
+            "sourceColumn": "POBLACION_DISTRITO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "POBLACION_PROVINCIA",
+            "dataType": "int64",
+            "sourceColumn": "POBLACION_PROVINCIA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "POBLACION_DEPARTAMENTO",
+            "dataType": "int64",
+            "sourceColumn": "POBLACION_DEPARTAMENTO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DIRESA",
+            "dataType": "string",
+            "sourceColumn": "DIRESA",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_UBIGEO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_UBIGEO].*   FROM [dbo].[DIM_UBIGEO] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_UBIGEO].*   FROM [dbo].[DIM_UBIGEO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_UBIGEO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_UNIDAD_MEDIDA",
+        "columns": [
+          {
+            "name": "UNIDAD_MEDIDA_ID",
+            "dataType": "int64",
+            "sourceColumn": "UNIDAD_MEDIDA_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_UNIDAD_MEDIDA",
+            "dataType": "string",
+            "sourceColumn": "COD_UNIDAD_MEDIDA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIPCION_UNIDAD_MEDIDA",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPCION_UNIDAD_MEDIDA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "AMBITO",
+            "dataType": "string",
+            "sourceColumn": "AMBITO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "AMBITO_EN",
+            "dataType": "string",
+            "sourceColumn": "AMBITO_EN",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ANIO_UNIDAD_MEDIDA",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_UNIDAD_MEDIDA",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_UNIDAD_MEDIDA",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_UNIDAD_MEDIDA].*   FROM [dbo].[DIM_UNIDAD_MEDIDA] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_UNIDAD_MEDIDA].*   FROM [dbo].[DIM_UNIDAD_MEDIDA] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_UNIDAD_MEDIDA"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "FACT_GASTO_MEF",
+        "columns": [
+          {
+            "name": "UBIGEO_ID",
+            "dataType": "int64",
+            "sourceColumn": "UBIGEO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EJECUTORA_ID",
+            "dataType": "int64",
+            "sourceColumn": "EJECUTORA_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "FUENTE_ID",
+            "dataType": "int64",
+            "sourceColumn": "FUENTE_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NIVEL_GOBIERNO_ID",
+            "dataType": "int64",
+            "sourceColumn": "NIVEL_GOBIERNO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PLIEGO_ID",
+            "dataType": "int64",
+            "sourceColumn": "PLIEGO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SECTOR_ID",
+            "dataType": "int64",
+            "sourceColumn": "SECTOR_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PROGRAMA_ID",
+            "dataType": "int64",
+            "sourceColumn": "PROGRAMA_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PROGRAMA_PPTO_ID",
+            "dataType": "int64",
+            "sourceColumn": "PROGRAMA_PPTO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ESPECIFICA_DET_ID",
+            "dataType": "int64",
+            "sourceColumn": "ESPECIFICA_DET_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "RUBRO_ID",
+            "dataType": "int64",
+            "sourceColumn": "RUBRO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CATEGORIA_GASTO_ID",
+            "dataType": "int64",
+            "sourceColumn": "CATEGORIA_GASTO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "UNIDAD_MEDIDA_ID",
+            "dataType": "int64",
+            "sourceColumn": "UNIDAD_MEDIDA_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "FINALIDAD_ID",
+            "dataType": "int64",
+            "sourceColumn": "FINALIDAD_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ANIO_ID",
+            "dataType": "int64",
+            "sourceColumn": "ANIO_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PIA",
+            "dataType": "double",
+            "sourceColumn": "PIA",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "PIM",
+            "dataType": "double",
+            "sourceColumn": "PIM",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Certificado",
+            "dataType": "double",
+            "sourceColumn": "Certificado",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "CompAnual",
+            "dataType": "double",
+            "sourceColumn": "CompAnual",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "AtencionCompMensual",
+            "dataType": "double",
+            "sourceColumn": "AtencionCompMensual",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Devengado",
+            "dataType": "double",
+            "sourceColumn": "Devengado",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Girado",
+            "dataType": "double",
+            "sourceColumn": "Girado",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "type": "calculated",
+            "name": "NOMBRE_UNIVERSIDAD",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "LASTNONBLANK(DIM_EJECUTORA[NOMBRE] ,1)"
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FACT_GASTO_MEF",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[FACT_GASTO_MEF].*   FROM [dbo].[FACT_GASTO_MEF] ",
+              "dataSource": "YOGASQLSERVER "
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": ".Sum_Devengado",
+            "expression": " SUM(FACT_GASTO_MEF[Devengado])"
+          },
+          {
+            "name": ".%Avance",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "\tSUM('FACT_GASTO_MEF'[Devengado]),",
+              "\tSUM('FACT_GASTO_MEF'[PIM])",
+              ")"
+            ]
+          },
+          {
+            "name": "Anio_Actual",
+            "expression": " MAX(DIM_ANIO[Anio])"
+          },
+          {
+            "name": "Anio-1",
+            "expression": " FACT_GASTO_MEF[Anio_Actual]-1"
+          },
+          {
+            "name": "Anio-2",
+            "expression": " FACT_GASTO_MEF[Anio_Actual]-2"
+          },
+          {
+            "name": "Anio-3",
+            "expression": " FACT_GASTO_MEF[Anio_Actual]-3"
+          },
+          {
+            "name": "Devengado_Actual",
+            "expression": [
+              "",
+              "VAR Anio_actual= FACT_GASTO_MEF[Anio_Actual]",
+              "RETURN",
+              "CALCULATE(FACT_GASTO_MEF[.Sum_Devengado],DIM_ANIO[Anio]=Anio_actual)"
+            ]
+          },
+          {
+            "name": "Devengado-1",
+            "expression": [
+              "",
+              "VAR Anio_1= FACT_GASTO_MEF[Anio-1]",
+              "RETURN",
+              "CALCULATE(FACT_GASTO_MEF[.Sum_Devengado],DIM_ANIO[Anio]=Anio_1)"
+            ]
+          },
+          {
+            "name": "Devengado-2",
+            "expression": [
+              "",
+              "VAR Anio_2= FACT_GASTO_MEF[Anio-2]",
+              "RETURN",
+              "CALCULATE(FACT_GASTO_MEF[.Sum_Devengado],",
+              "DIM_ANIO[Anio]=Anio_2)"
+            ]
+          },
+          {
+            "name": "Devengado-3",
+            "expression": [
+              " VAR Anio_3= FACT_GASTO_MEF[Anio-3] RETURN",
+              "CALCULATE(FACT_GASTO_MEF[.Sum_Devengado],",
+              "DIM_ANIO[Anio]=Anio_3)"
+            ]
+          },
+          {
+            "name": "%Avance_Actual",
+            "expression": [
+              "",
+              "VAR Avance_actual= FACT_GASTO_MEF[Anio_Actual]",
+              "RETURN",
+              "CALCULATE(FACT_GASTO_MEF[.%Avance],DIM_ANIO[Anio]=Avance_actual)"
+            ]
+          },
+          {
+            "name": "%Avance-1",
+            "expression": [
+              "",
+              "VAR Avance_1= FACT_GASTO_MEF[Anio-1]",
+              "RETURN",
+              "CALCULATE(FACT_GASTO_MEF[.%Avance], DIM_ANIO[Anio]=Avance_1)"
+            ]
+          },
+          {
+            "name": "%Avance-2",
+            "expression": [
+              "",
+              "VAR Avance_2= FACT_GASTO_MEF[Anio-2]",
+              "RETURN",
+              "CALCULATE(FACT_GASTO_MEF[.%Avance], DIM_ANIO[Anio]=Avance_2)"
+            ]
+          },
+          {
+            "name": "%Avance-3",
+            "expression": [
+              "",
+              "VAR Avance_3= FACT_GASTO_MEF[Anio-3]",
+              "RETURN",
+              "CALCULATE(FACT_GASTO_MEF[.%Avance], DIM_ANIO[Anio]=Avance_3)"
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[FACT_GASTO_MEF].*   FROM [dbo].[FACT_GASTO_MEF] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FACT_GASTO_MEF"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "824e9193-13c5-45ad-a6ac-5c8edd1836f3",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "ANIO_ID",
+        "toTable": "DIM_ANIO",
+        "toColumn": "ANIO_FINALIDAD"
+      },
+      {
+        "name": "69e10810-4680-483a-95f8-598c6ca85336",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "CATEGORIA_GASTO_ID",
+        "toTable": "DIM_CATEGORIA_GASTO",
+        "toColumn": "CATEGORIA_GASTO_ID"
+      },
+      {
+        "name": "88b6e628-9142-4691-9d1c-3c6651ab8e5f",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "EJECUTORA_ID",
+        "toTable": "DIM_EJECUTORA",
+        "toColumn": "EJECUTORA_ID"
+      },
+      {
+        "name": "88370a55-9ea1-4e08-9c92-464bb352fec6",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "FINALIDAD_ID",
+        "toTable": "DIM_FINALIDAD",
+        "toColumn": "FINALIDAD_ID"
+      },
+      {
+        "name": "cc9f520f-f3bb-4301-b465-dcdbb2e6972f",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "FUENTE_ID",
+        "toTable": "DIM_FUENTE",
+        "toColumn": "FUENTE_ID"
+      },
+      {
+        "name": "8bed8b32-2875-4c09-a3f9-d4ce1f0837e9",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "NIVEL_GOBIERNO_ID",
+        "toTable": "DIM_NIVEL_GOBIERNO",
+        "toColumn": "NIVEL_GOBIERNO_ID"
+      },
+      {
+        "name": "aa7fd54f-23b3-432f-8dad-ebde8e270767",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "PLIEGO_ID",
+        "toTable": "DIM_PLIEGO",
+        "toColumn": "PLIEGO_ID"
+      },
+      {
+        "name": "7a414e81-24f9-442a-acd9-3e42a76bbbe6",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "PROGRAMA_ID",
+        "toTable": "DIM_PROGRAMA",
+        "toColumn": "PROGRAMA_ID"
+      },
+      {
+        "name": "3f8af080-870d-43ee-a09a-0c477a4ea714",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "PROGRAMA_PPTO_ID",
+        "toTable": "DIM_PROGRAMA_PPTO",
+        "toColumn": "PROGRAMA_PPTO_ID"
+      },
+      {
+        "name": "88039383-baad-44a9-aadd-2e1144c1be77",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "RUBRO_ID",
+        "toTable": "DIM_RUBRO",
+        "toColumn": "RUBRO_ID"
+      },
+      {
+        "name": "83ae68a9-4ad1-43bf-81b1-4df77927fd81",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "SECTOR_ID",
+        "toTable": "DIM_SECTOR",
+        "toColumn": "SECTOR_ID"
+      },
+      {
+        "name": "95a3f9bf-ab07-4681-a282-625ab37fac67",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "ESPECIFICA_DET_ID",
+        "toTable": "DIM_SUBGENERICA_DET_ESPECIFICA_DET",
+        "toColumn": "ESPECIFICA_DET_ID"
+      },
+      {
+        "name": "897f8408-80c3-4520-943b-dac3b21ed212",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "UBIGEO_ID",
+        "toTable": "DIM_UBIGEO",
+        "toColumn": "UBIGEO_ID"
+      },
+      {
+        "name": "3ae5a657-c874-46b0-9008-59993cc414cd",
+        "fromTable": "FACT_GASTO_MEF",
+        "fromColumn": "UNIDAD_MEDIDA_ID",
+        "toTable": "DIM_UNIDAD_MEDIDA",
+        "toColumn": "UNIDAD_MEDIDA_ID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
